@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.NewPoolViewController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="726.0" style="-fx-background-color: #f0f0f0;">
+         <children>
+            <TextField fx:id="poolIDtxt" layoutX="64.0" layoutY="24.0" prefHeight="25.0" prefWidth="48.0" />
+            <ComboBox fx:id="cupIDcmb" layoutX="321.0" layoutY="24.0" prefHeight="25.0" prefWidth="68.0" />
+            <Pane layoutX="7.0" layoutY="55.0" prefHeight="341.0" prefWidth="382.0" style="-fx-border-color: #000000;">
+               <children>
+                  <Pane layoutX="5.0" layoutY="14.0" prefHeight="124.0" prefWidth="365.0" style="-fx-background-color: #FFFFFF;">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="ID:" />
+                        <TextField fx:id="whiteIDtxt" layoutX="51.0" layoutY="10.0" prefHeight="25.0" prefWidth="48.0" />
+                        <Label layoutX="14.0" layoutY="47.0" text="First Name:" />
+                        <TextField fx:id="whiteFirstNametxt" layoutX="88.0" layoutY="43.0" prefHeight="25.0" prefWidth="146.0" />
+                        <TextField fx:id="whiteLastNametxt" layoutX="88.0" layoutY="77.0" prefHeight="25.0" prefWidth="146.0" />
+                        <Label layoutX="14.0" layoutY="81.0" text="Last Name:" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="5.0" layoutY="159.0" prefHeight="124.0" prefWidth="365.0" style="-fx-background-color: #FF0000;">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="ID:" />
+                        <TextField fx:id="redIDtxt" layoutX="51.0" layoutY="10.0" prefHeight="25.0" prefWidth="48.0" />
+                        <Label layoutX="14.0" layoutY="47.0" text="First Name:" />
+                        <TextField fx:id="redFirstNametxt" layoutX="88.0" layoutY="43.0" prefHeight="25.0" prefWidth="146.0" />
+                        <TextField fx:id="redLastNametxt" layoutX="88.0" layoutY="77.0" prefHeight="25.0" prefWidth="146.0" />
+                        <Label layoutX="14.0" layoutY="81.0" text="Last Name:" />
+                     </children>
+                  </Pane>
+                  <Button fx:id="submitBtn" layoutX="5.0" layoutY="303.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" text="Submit Match" />
+               </children>
+            </Pane>
+            <Button fx:id="saveBtn" layoutX="566.0" layoutY="358.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" text="Save and Close" />
+            <TableView fx:id="matchTable" layoutX="402.0" layoutY="54.0" prefHeight="288.0" prefWidth="310.0" />
+            <Label layoutX="14.0" layoutY="28.0" text="Pool ID:" />
+            <Label layoutX="254.0" layoutY="28.0" text="Cup ID:" />
+            <Label layoutX="524.0" layoutY="23.0" text="Matches">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

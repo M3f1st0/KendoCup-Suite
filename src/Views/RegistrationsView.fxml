@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="329.0" prefWidth="613.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RegistrationsViewController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="First Name:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="105.0" layoutY="13.0" prefHeight="25.0" prefWidth="138.0" />
+      <Label layoutX="364.0" layoutY="16.0" text="Last Name:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="457.0" layoutY="13.0" prefHeight="25.0" prefWidth="138.0" />
+      <Label layoutX="12.0" layoutY="68.0" text="Grade Type:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="105.0" layoutY="65.0" prefHeight="25.0" prefWidth="138.0" />
+      <Label layoutX="357.0" layoutY="67.0" text="Grade Level:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="457.0" layoutY="65.0" prefHeight="25.0" prefWidth="138.0" />
+      <Label layoutX="35.0" layoutY="130.0" text="Gender:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="105.0" layoutY="129.0" prefHeight="25.0" prefWidth="138.0" />
+      <Label layoutX="364.0" layoutY="132.0" text="Club Name:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="457.0" layoutY="129.0" prefHeight="25.0" prefWidth="138.0" />
+      <CheckBox layoutX="127.0" layoutY="183.0" mnemonicParsing="false" text="Sugo Cup Open Class" />
+      <CheckBox layoutX="127.0" layoutY="209.0" mnemonicParsing="false" text="40+ Open Class" />
+      <CheckBox layoutX="454.0" layoutY="183.0" mnemonicParsing="false" text="Estuko Cup Open Class" />
+      <CheckBox layoutX="454.0" layoutY="209.0" mnemonicParsing="false" text="Team Open Class" />
+      <Button fx:id="saveBtn" layoutX="454.0" layoutY="282.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="SAVE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="backBtn" layoutX="22.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleBackButtonAction" prefHeight="25.0" prefWidth="138.0" text="BACK">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="17.0" layoutY="181.0" text="Competitions:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

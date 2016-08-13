@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="imgView" prefHeight="199.0" prefWidth="346.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MsgBoxController">
+   <children>
+      <Button fx:id="okBtn" layoutX="113.0" layoutY="160.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="121.0" text="OK" />
+      <Label fx:id="errorLbl" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="72.0" prefHeight="88.0" prefWidth="281.0" text="tttttttttttttttt" wrapText="true" />
+      <ImageView fx:id="imgV" fitHeight="50.0" fitWidth="50.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" />
+      
+   </children>
+</AnchorPane>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="128.0" prefWidth="369.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.NewTournamentController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Tournament Name:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="dbNameTxt" layoutX="174.0" layoutY="12.0" promptText="i.e Sugo2016" />
+      <Button layoutX="14.0" layoutY="80.0" mnemonicParsing="false" onAction="#clickExitButton" prefHeight="25.0" prefWidth="82.0" text="Cancel" />
+      <Button fx:id="saveBtn" layoutX="245.0" layoutY="80.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="25.0" prefWidth="110.0" text="Save and Close" />
+      <Button layoutX="326.0" layoutY="12.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" text="?" />
+   </children>
+</AnchorPane>

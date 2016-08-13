@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="318.0" prefWidth="670.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConnectionSettingsController">
+   <children>
+      <Label layoutX="14.0" layoutY="71.0" text="Server address:" />
+      <TextField fx:id="serverAddressTxt" layoutX="110.0" layoutY="67.0" prefHeight="25.0" prefWidth="164.0" promptText="i.e &quot;localhost&quot; or &quot;127.0.0.1&quot;" />
+      <Label layoutX="300.0" layoutY="71.0" text="Port:" />
+      <TextField fx:id="portNumberTxt" layoutX="342.0" layoutY="67.0" prefHeight="25.0" prefWidth="80.0" />
+      <Label layoutX="14.0" layoutY="147.0" text="Username:" />
+      <TextField fx:id="usernameTxt" layoutX="110.0" layoutY="143.0" prefHeight="25.0" prefWidth="313.0" />
+      <Label layoutX="16.0" layoutY="224.0" text="Password:" />
+      <PasswordField fx:id="passwordTxt" layoutX="110.0" layoutY="220.0" prefHeight="25.0" prefWidth="313.0" />
+      <Button fx:id="cancelBtn" layoutX="17.0" layoutY="263.0" mnemonicParsing="false" onAction="#clickExitButton" prefHeight="25.0" prefWidth="123.0" text="Cancel" />
+      <Button fx:id="saveBtn" layoutX="533.0" layoutY="263.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="25.0" prefWidth="123.0" text="Save and Close" />
+      <Label alignment="TOP_LEFT" layoutX="454.0" layoutY="63.0" prefHeight="44.0" prefWidth="202.0" text="Name of the IP address or host name of the server - and TCP/IP port." wrapText="true" />
+      <Label alignment="TOP_LEFT" layoutX="454.0" layoutY="143.0" prefHeight="25.0" prefWidth="202.0" text="MySQL username." wrapText="true" />
+      <Label alignment="TOP_LEFT" layoutX="454.0" layoutY="220.0" prefHeight="25.0" prefWidth="202.0" text="The user's password." wrapText="true" />
+      <Label layoutX="16.0" layoutY="14.0" text="Connection Settings">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
