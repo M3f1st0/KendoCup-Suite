@@ -120,7 +120,7 @@ public class MainMenuController implements Initializable {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             window.setScene(scene);
-            window.setResizable(false);
+            window.setResizable(true);
             window.setFullScreen(false);
             window.show();
         } catch (IOException ex) {
