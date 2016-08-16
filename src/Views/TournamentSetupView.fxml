@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -9,232 +8,393 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="531.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TournamentSetupController">
+<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TournamentSetupController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <Accordion fx:id="accordion" layoutY="30.0" prefHeight="500.0" prefWidth="943.0">
+      <MenuBar fx:id="menubar" prefHeight="28.0" prefWidth="341.0" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="NEVER">
+         <menus>
+            <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="openTournamentMI" mnemonicParsing="false" text="Open Tournament" />
+                  <MenuItem fx:id="exitMI" mnemonicParsing="false" text="Exit" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem fx:id="faqMI" mnemonicParsing="false" text="FAQ's" />
+                  <MenuItem fx:id="aboutMI" mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Accordion fx:id="accordion" prefHeight="395.0" prefWidth="1000.0" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
         <panes>
-          <TitledPane fx:id="regCompetitionsTP" expanded="false" prefHeight="402.0" prefWidth="600.0" text="Cup Registration and Structure">
+          <TitledPane fx:id="regCompetitionsTP" prefHeight="495.0" prefWidth="976.0" text="Cup Configuration">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="364.0" prefWidth="706.0">
+                  <GridPane prefHeight="469.0" prefWidth="982.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <Pane layoutX="3.0" layoutY="14.0" prefHeight="317.0" prefWidth="936.0" style="-fx-border-color: #000000; -fx-background-color: #d0d0d0;">
-                           <children>
-                              <TextField fx:id="cupNameTxt" focusTraversable="false" layoutX="213.0" layoutY="29.0" prefHeight="27.0" prefWidth="157.0" />
-                              <TextField fx:id="numOfPoolsTxt" layoutX="290.0" layoutY="72.0" prefHeight="27.0" prefWidth="76.0" />
-                              <TextField fx:id="prefPerPoolTxt" layoutX="290.0" layoutY="114.0" prefHeight="27.0" prefWidth="76.0" />
-                              <TextField fx:id="maxPerPoolTxt" layoutX="290.0" layoutY="153.0" prefHeight="27.0" prefWidth="75.0" />
-                              <TextField fx:id="shiaijoTxt" layoutX="291.0" layoutY="192.0" prefHeight="27.0" prefWidth="74.0" />
-                              <CheckBox fx:id="isATeamChkBx" layoutX="14.0" layoutY="234.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="351.0" text="This cup is a Team Competition" />
-                              <Button fx:id="submitCupBtn" layoutX="242.0" layoutY="263.0" mnemonicParsing="false" onAction="#addCupToTable" prefHeight="27.0" prefWidth="128.0" text="Save Structure" />
-                              <Button fx:id="clearCupBtn" layoutX="14.0" layoutY="263.0" mnemonicParsing="false" onAction="#clear" prefHeight="27.0" prefWidth="109.0" text="Delete Structure" />
-                              <Label focusTraversable="false" layoutX="12.0" layoutY="32.0" prefHeight="17.0" prefWidth="98.0" text="Insert Cup name*:" />
-                              <Label focusTraversable="false" layoutX="13.0" layoutY="78.0" prefHeight="17.0" prefWidth="115.0" text="Number of Pools* :" />
-                              <Label focusTraversable="false" layoutX="13.0" layoutY="120.0" prefHeight="17.0" prefWidth="179.0" text="Pref. number of players per Pool*:" />
-                              <Label focusTraversable="false" layoutX="13.0" layoutY="159.0" prefHeight="17.0" prefWidth="182.0" text="Max. number of players per Pool*:" />
-                              <TableView fx:id="cupTableView" layoutX="459.0" layoutY="12.0" prefHeight="289.0" prefWidth="463.0" />
-                              <Label focusTraversable="false" layoutX="14.0" layoutY="198.0" text="Number of ShiaiJos*:" />
-                              <Label focusTraversable="false" layoutX="290.0" layoutY="219.0" text="max. 26">
-                                 <font>
-                                    <Font size="9.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="14.0" layoutY="295.0" text="*Fields  are  mandatory">
-                                 <font>
-                                    <Font name="System Italic" size="10.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Button fx:id="regCompSaveBtn" disable="true" layoutX="757.0" layoutY="333.0" mnemonicParsing="false" onAction="#saveAndContinue" prefHeight="39.0" prefWidth="170.0" text="Save and continue">
+                        <Label focusTraversable="false" prefHeight="28.0" prefWidth="116.0" text="Insert Cup name*:" GridPane.columnSpan="2147483647" />
+                        <Label focusTraversable="false" prefHeight="17.0" prefWidth="115.0" text="Number of Pools* :" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                        <Label focusTraversable="false" prefHeight="17.0" prefWidth="179.0" text="Pref. number of players per Pool*:" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
+                        <Label focusTraversable="false" prefHeight="17.0" prefWidth="182.0" text="Max. number of players per Pool*:" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />
+                        <Label focusTraversable="false" text="Number of ShiaiJos*:" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
+                        <CheckBox fx:id="isATeamChkBx" mnemonicParsing="false" prefHeight="20.0" prefWidth="351.0" text="This cup is a Team Competition" GridPane.columnSpan="2147483647" GridPane.rowIndex="6" />
+                        <TextField fx:id="cupNameTxt" focusTraversable="false" prefHeight="27.0" prefWidth="157.0" GridPane.columnIndex="6" GridPane.columnSpan="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="numOfPoolsTxt" prefHeight="27.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="prefPerPoolTxt" prefHeight="27.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="maxPerPoolTxt" prefHeight="27.0" prefWidth="75.0" GridPane.columnIndex="8" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="shiaijoTxt" prefHeight="27.0" prefWidth="74.0" GridPane.columnIndex="8" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label focusTraversable="false" text="max. 26" GridPane.columnIndex="8" GridPane.rowIndex="5" GridPane.valignment="TOP">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="9.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="clearCupBtn" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="173.0" text="Delete Structure" GridPane.columnSpan="3" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="submitCupBtn" mnemonicParsing="false" onAction="#addCupToTable" prefHeight="25.0" prefWidth="141.0" text="Save Structure" GridPane.columnIndex="6" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Label text="*Fields  are  mandatory" GridPane.columnSpan="2147483647" GridPane.rowIndex="12">
+                           <font>
+                              <Font name="System Italic" size="10.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="cupTableView" prefHeight="289.0" prefWidth="463.0" GridPane.columnIndex="10" GridPane.columnSpan="2147483647" GridPane.rowSpan="10" />
+                        <Button fx:id="regCompSaveBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" disable="true" mnemonicParsing="false" onAction="#saveAndContinue" text="Save and continue" GridPane.columnIndex="15" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="11">
+                           <font>
+                              <Font size="16.0" />
                            </font>
                         </Button>
                      </children>
-                  </AnchorPane>
+                  </GridPane>
             </content>
-               <font>
-                  <Font size="15.0" />
-               </font>
           </TitledPane>
-          <TitledPane fx:id="regTeamsTP" disable="true" expanded="false" text="Register Teams">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <TitledPane fx:id="regTeamsTP" expanded="false" prefHeight="495.0" prefWidth="983.0" text="Teams Registration">
+               <content>
+                  <GridPane prefHeight="469.0" prefWidth="958.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="98.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="77.0" minWidth="10.0" prefWidth="65.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <Pane layoutX="6.0" layoutY="14.0" prefHeight="262.0" prefWidth="926.0" style="-fx-border-color: #000000; -fx-background-color: #d0d0d0;">
-                           <children>
-                              <Label layoutX="60.0" layoutY="19.0" text="Team Name:">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="teamNameTxt" layoutX="230.0" layoutY="14.0" prefHeight="31.0" prefWidth="149.0">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </TextField>
-                              <Label layoutX="48.0" layoutY="68.0" text="Min. members:">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="minMembersTxt" layoutX="298.0" layoutY="65.0" prefHeight="27.0" prefWidth="82.0" />
-                              <Label layoutX="46.0" layoutY="119.0" text="Max. members:">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="maxMembersTxt" layoutX="299.0" layoutY="116.0" prefHeight="27.0" prefWidth="82.0" />
-                              <Label layoutX="108.0" layoutY="166.0" text="Cup:">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="cupNameCmb" layoutX="231.0" layoutY="163.0" prefWidth="150.0" />
-                              <Button fx:id="addTeamBtn" layoutX="259.0" layoutY="217.0" mnemonicParsing="false" onAction="#addTeamToTable" prefHeight="31.0" prefWidth="120.0" text="Add&gt;&gt;">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="removeTeamBtn" layoutX="46.0" layoutY="217.0" mnemonicParsing="false" onAction="#clear" prefHeight="31.0" prefWidth="122.0" text="Remove Team">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Button>
-                              <TableView fx:id="teamTableView" focusTraversable="false" layoutX="518.0" layoutY="11.0" prefHeight="238.0" prefWidth="402.0" />
-                           </children>
-                        </Pane>
-                        <Button fx:id="regTeamSaveBtn" disable="true" layoutX="702.0" layoutY="292.0" mnemonicParsing="false" onAction="#saveAndContinue" prefHeight="44.0" prefWidth="225.0" text="Save and continue">
+                        <Button fx:id="regTeamSaveBtn" disable="true" mnemonicParsing="false" onAction="#saveAndContinue" prefHeight="44.0" prefWidth="225.0" text="Save and continue" GridPane.columnIndex="10" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="11">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                     </children>
-                  </AnchorPane>
-            </content>
-               <font>
-                  <Font size="15.0" />
-               </font>
-          </TitledPane>
-            <TitledPane fx:id="regClubsTP" disable="true" expanded="false" text="Register Clubs">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label focusTraversable="false" layoutX="102.0" layoutY="64.0" text="Club Name:">
+                        <TableView fx:id="teamTableView" focusTraversable="false" prefHeight="238.0" prefWidth="402.0" GridPane.columnIndex="7" GridPane.columnSpan="2147483647" GridPane.rowSpan="10" />
+                        <Button fx:id="removeTeamBtn" mnemonicParsing="false" onAction="#clear" prefHeight="35.0" prefWidth="101.0" text="&lt;&lt;Remove" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="addTeamBtn" mnemonicParsing="false" onAction="#addTeamToTable" prefHeight="31.0" prefWidth="120.0" text="Add&gt;&gt;" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                        <ComboBox fx:id="cupNameCmb" prefHeight="25.0" prefWidth="168.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                        <Label text="Cup:" GridPane.rowIndex="6">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="clubNameTxt" layoutX="268.0" layoutY="58.0" />
-                        <Label layoutX="102.0" layoutY="134.0" text="Nationality:">
+                        <TextField fx:id="maxMembersTxt" prefHeight="27.0" prefWidth="82.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <Label text="Max. members:" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="nationalityTxt" layoutX="268.0" layoutY="128.0" />
-                        <Button fx:id="addClubBtn" layoutX="269.0" layoutY="223.0" mnemonicParsing="false" onAction="#addClubToTable" prefHeight="27.0" prefWidth="152.0" text="ADD &gt;&gt;" />
-                        <Button fx:id="removeClubBtn" layoutX="56.0" layoutY="223.0" mnemonicParsing="false" onAction="#clear" prefHeight="27.0" prefWidth="122.0" text="REMOVE" />
-                        <Button fx:id="regClubSaveBtn" disable="true" layoutX="574.0" layoutY="301.0" mnemonicParsing="false" onAction="#saveAndContinue" prefHeight="49.0" prefWidth="320.0" text="Save and Continue">
+                        <TextField fx:id="minMembersTxt" prefHeight="27.0" prefWidth="82.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Label prefHeight="21.0" prefWidth="177.0" text="Min. members:" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="teamNameTxt" prefHeight="31.0" prefWidth="149.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label text="Team Name:" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </content>
+          </TitledPane>
+            <TitledPane fx:id="regClubsTP" expanded="false" text="Clubs Registration">
+               <content>
+                  <GridPane prefHeight="469.0" prefWidth="771.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TableView fx:id="clubTableView" focusTraversable="false" prefHeight="192.0" prefWidth="320.0" GridPane.columnIndex="7" GridPane.columnSpan="2147483647" GridPane.rowSpan="10" />
+                        <Button fx:id="regClubSaveBtn" disable="true" mnemonicParsing="false" onAction="#saveAndContinue" prefHeight="49.0" prefWidth="320.0" text="Save and Continue" GridPane.columnIndex="10" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="11">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <TableView fx:id="clubTableView" focusTraversable="false" layoutX="574.0" layoutY="58.0" prefHeight="192.0" prefWidth="320.0" />
+                        <Button fx:id="removeClubBtn" mnemonicParsing="false" onAction="#clear" prefHeight="27.0" prefWidth="122.0" text="REMOVE" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                        <Button fx:id="addClubBtn" mnemonicParsing="false" onAction="#addClubToTable" prefHeight="27.0" prefWidth="152.0" text="ADD &gt;&gt;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <TextField fx:id="nationalityTxt" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                        <Label text="Nationality:" GridPane.columnSpan="2147483647" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="clubNameTxt" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                        <Label focusTraversable="false" text="Club Name:" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
                      </children>
-                  </AnchorPane>
-              </content>
-               <font>
-                  <Font size="15.0" />
-               </font>
+                  </GridPane>
+               </content>
             </TitledPane>
-          <TitledPane fx:id="regPlayersTP" disable="true" expanded="false" text="Register Players">
-            <content>
-                  <ScrollPane prefViewportHeight="324.0" prefViewportWidth="598.0">
-                     <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="941.0">
-                           <children>
-                              <Label layoutX="14.0" layoutY="14.0" text="First Name:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="fnameTxt" layoutX="103.0" layoutY="13.0" prefHeight="27.0" prefWidth="140.0" />
-                              <Label layoutX="278.0" layoutY="16.0" text="Last Name:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="lnameTxt" layoutX="364.0" layoutY="13.0" prefHeight="27.0" prefWidth="145.0" />
-                              <Label layoutX="8.0" layoutY="74.0" text="Grade Type:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="gradeTypecmb" layoutX="102.0" layoutY="72.0" onAction="#chooseGradeTypeAction" prefHeight="27.0" prefWidth="139.0" />
-                              <Label layoutX="267.0" layoutY="73.0" text="Grade Level:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="gradeLevelcmb" layoutX="367.0" layoutY="70.0" prefHeight="27.0" prefWidth="135.0" />
-                              <Label layoutX="31.0" layoutY="131.0" text="Gender:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="gendercmb" layoutX="103.0" layoutY="130.0" prefHeight="27.0" prefWidth="137.0" />
-                              <Label layoutX="274.0" layoutY="133.0" text="Club Name:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="clubNamecmb" layoutX="366.0" layoutY="130.0" prefHeight="27.0" prefWidth="137.0" />
-                              <Label layoutX="305.0" layoutY="214.0" text="Team:">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                              <ComboBox fx:id="teamcmb" layoutX="367.0" layoutY="211.0" prefHeight="27.0" prefWidth="138.0" />
-                              <Button fx:id="submitPayerBtn" layoutX="368.0" layoutY="251.0" mnemonicParsing="false" onAction="#addContestantToTable" prefHeight="37.0" prefWidth="138.0" text="ADD PLAYER" />
-                              <Button fx:id="saveBtn" layoutX="527.0" layoutY="396.0" mnemonicParsing="false" onAction="#saveAndContinue" prefHeight="38.0" prefWidth="400.0" text="Save and back to main menu">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
-                              <TableView fx:id="cupSelectorTableView" layoutX="5.0" layoutY="210.0" prefHeight="170.0" prefWidth="298.0" />
-                              <Label alignment="CENTER" layoutX="14.0" layoutY="185.0" prefHeight="22.0" prefWidth="238.0" text="Select Cups">
-                                 <font>
-                                    <Font name="Arial Black" size="14.0" />
-                                 </font>
-                              </Label>
-                              <TableView fx:id="playersTableView" layoutX="527.0" layoutY="13.0" prefHeight="360.0" prefWidth="393.0" />
-                              <Button fx:id="removeContestantBtn" layoutX="368.0" layoutY="306.0" mnemonicParsing="false" onAction="#clear" prefHeight="37.0" prefWidth="138.0" text="REMOVE" />
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </ScrollPane>
-            </content>
-               <font>
-                  <Font size="15.0" />
-               </font>
+          <TitledPane fx:id="regPlayersTP" expanded="false" text="Contestants Registration">
+               <content>
+                  <GridPane prefHeight="469.0" prefWidth="943.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="removeContestantBtn" mnemonicParsing="false" onAction="#clear" prefHeight="37.0" prefWidth="138.0" text="REMOVE" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                        <TableView fx:id="playersTableView" prefHeight="360.0" prefWidth="393.0" GridPane.columnIndex="10" GridPane.columnSpan="2147483647" GridPane.rowSpan="9" />
+                        <Label alignment="CENTER" prefHeight="22.0" prefWidth="217.0" text="Select Cups" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="7">
+                           <font>
+                              <Font name="Arial Black" size="14.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="cupSelectorTableView" prefHeight="170.0" prefWidth="298.0" GridPane.columnSpan="6" GridPane.rowIndex="8" GridPane.rowSpan="4" />
+                        <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#saveAndContinue" prefHeight="38.0" prefWidth="400.0" text="Save and back to main menu" GridPane.columnIndex="14" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="submitPayerBtn" mnemonicParsing="false" onAction="#addContestantToTable" prefHeight="37.0" prefWidth="138.0" text="ADD PLAYER" GridPane.columnIndex="7" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="teamcmb" prefHeight="27.0" prefWidth="214.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                        <Label text="Team:" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="clubNamecmb" prefHeight="27.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                        <Label text="Club Name:" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="gendercmb" prefHeight="27.0" prefWidth="137.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                        <Label text="Gender:" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="gradeLevelcmb" prefHeight="27.0" prefWidth="135.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                        <Label text="Grade Level:" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="gradeTypecmb" onAction="#chooseGradeTypeAction" prefHeight="27.0" prefWidth="139.0" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                        <Label prefHeight="20.0" prefWidth="129.0" text="Grade Type:" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="lnameTxt" prefHeight="27.0" prefWidth="145.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                        <Label text="Last Name:" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="fnameTxt" prefHeight="27.0" prefWidth="140.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.halignment="RIGHT" />
+                        <Label prefHeight="20.0" prefWidth="113.0" text="First Name:" GridPane.columnSpan="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </content>
           </TitledPane>
         </panes>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
       </Accordion>
-      <MenuBar fx:id="menubar" layoutY="2.0" prefHeight="31.0" prefWidth="943.0">
-        <menus>
-          <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
-            <items>
-                  <MenuItem fx:id="openTournamentMI" mnemonicParsing="false" text="Open Tournament" />
-              <MenuItem fx:id="exitMI" mnemonicParsing="false" text="Exit" />
-            </items>
-          </Menu>
-          <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help">
-            <items>
-                  <MenuItem fx:id="faqMI" mnemonicParsing="false" text="FAQ's" />
-              <MenuItem fx:id="aboutMI" mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
    </children>
-</AnchorPane>
+</GridPane>
