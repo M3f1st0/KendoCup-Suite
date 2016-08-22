@@ -145,63 +145,150 @@ public class Contestant implements Serializable {
     }
 
     public String getFirstNameProperty() {
+        if (firstNameProperty == null) {
+            firstNameProperty = new SimpleStringProperty(firstName);
+        }
         return firstNameProperty.get();
     }
 
     public String getLastNameProperty() {
+        if (lastNameProperty == null) {
+            lastNameProperty = new SimpleStringProperty(lastName);
+        }
         return lastNameProperty.get();
     }
 
     public String getRoundProperty() {
+        if (roundProperty == null) {
+            roundProperty = new SimpleStringProperty(round);
+        }
         return roundProperty.get();
     }
 
     public IntegerProperty getIDProperty() {
+        if (IDProperty == null) {
+            IDProperty = new SimpleIntegerProperty(ID);
+        }
         return IDProperty;
     }
 
     public int getWinsProperty() {
+        if (winsProperty == null) {
+            winsProperty = new SimpleIntegerProperty(wins);
+        }
         return winsProperty.get();
     }
 
     public int getDrawsProperty() {
+        if (drawsProperty == null) {
+            drawsProperty = new SimpleIntegerProperty(draws);
+        }
         return drawsProperty.get();
     }
 
     public int getLosesProperty() {
+        if (losesProperty == null) {
+            losesProperty = new SimpleIntegerProperty(loses);
+        }
         return losesProperty.get();
     }
 
     public int getMatchTotalIpponsProperty() {
+        if (matchTotalIpponsProperty == null) {
+            matchTotalIpponsProperty = new SimpleIntegerProperty(matchTotalIppons);
+        }
         return matchTotalIpponsProperty.get();
     }
 
     public int getMenProperty() {
+        if (menProperty == null) {
+            menProperty = new SimpleIntegerProperty(men);
+        }
         return menProperty.get();
     }
 
     public int getKoteProperty() {
+        if (koteProperty == null) {
+            koteProperty = new SimpleIntegerProperty(kote);
+        }
         return koteProperty.get();
     }
 
     public int getDouProperty() {
+        if (douProperty == null) {
+            douProperty = new SimpleIntegerProperty(dou);
+        }
         return douProperty.get();
     }
 
     public int getTsukiProperty() {
+        if (tsukiProperty == null) {
+            tsukiProperty = new SimpleIntegerProperty(tsuki);
+        }
         return tsukiProperty.get();
     }
 
     public int getIpponProperty() {
+        if (ipponProperty == null) {
+            ipponProperty = new SimpleIntegerProperty(ippon);
+        }
         return ipponProperty.get();
     }
 
     public int getHansokuProperty() {
+        if (hansokuProperty == null) {
+            hansokuProperty = new SimpleIntegerProperty(hansoku);
+        }
         return hansokuProperty.get();
     }
 
     public String getColorProperty() {
+        if (colorProperty == null) {
+            colorProperty = new SimpleStringProperty(color);
+        }
         return colorProperty.get();
+    }
+
+    public String getGradeTypeProperty() {
+        if (gradeTypeProperty == null) {
+            gradeTypeProperty = new SimpleStringProperty(gradeType);
+        }
+        return gradeTypeProperty.get();
+    }
+
+    public String getGradeLevelProperty() {
+        if (gradeLevelProperty == null) {
+            gradeLevelProperty = new SimpleStringProperty(gradeLevel);
+        }
+        return gradeLevelProperty.get();
+    }
+
+    public String getGenderProperty() {
+        if (genderProperty == null) {
+            genderProperty = new SimpleStringProperty(gender);
+        }
+        return genderProperty.get();
+    }
+
+    public String getClubNameProperty() {
+        if (clubNameProperty == null) {
+            clubNameProperty = new SimpleStringProperty(clubName);
+        }
+        return clubNameProperty.get();
+    }
+
+    public String getBelongsToTeamProperty() {
+        if (belongsToTeamProperty == null) {
+            belongsToTeamProperty = new SimpleStringProperty(belongsToTeam);
+        }
+        return belongsToTeamProperty.get();
+    }
+
+    public String getBelongsToCupProperty() {
+        if (belongsToCupProperty == null) {
+            belongsToCupProperty = new SimpleStringProperty(belongsToCup);
+        }
+        return belongsToCupProperty.get();
     }
 
     public String getFirstName() {
@@ -264,26 +351,6 @@ public class Contestant implements Serializable {
         return color;
     }
 
-    public String getGradeTypeProperty() {
-        return gradeTypeProperty.get();
-    }
-
-    public String getGradeLevelProperty() {
-        return gradeLevelProperty.get();
-    }
-
-    public String getGenderProperty() {
-        return genderProperty.get();
-    }
-
-    public String getClubNameProperty() {
-        return clubNameProperty.get();
-    }
-
-    public String getBelongsToTeamProperty() {
-        return belongsToTeamProperty.get();
-    }
-
     public String getGradeType() {
         return gradeType;
     }
@@ -306,10 +373,6 @@ public class Contestant implements Serializable {
 
     public String getBelongsToTeam() {
         return belongsToTeam;
-    }
-
-    public String getBelongsToCupProperty() {
-        return belongsToCupProperty.get();
     }
 
     public String getBelongsToCup() {

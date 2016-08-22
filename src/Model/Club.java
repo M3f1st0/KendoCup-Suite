@@ -12,7 +12,7 @@ import javafx.beans.property.StringProperty;
 
 /**
  *
- * @author panos
+ * @author Panagiotis Bitharis
  */
 public class Club implements Serializable {
 
@@ -37,6 +37,9 @@ public class Club implements Serializable {
      * @return the clubNameProperty
      */
     public String getClubNameProperty() {
+        if(clubNameProperty==null){
+            clubNameProperty = new SimpleStringProperty(clubName);
+        }
         return clubNameProperty.get();
     }
 
@@ -44,6 +47,9 @@ public class Club implements Serializable {
      * @return the nationalityProperty
      */
     public String getNationalityProperty() {
+        if(nationalityProperty==null){
+            nationalityProperty= new SimpleStringProperty(nationality);
+        }
         return nationalityProperty.get();
     }
 

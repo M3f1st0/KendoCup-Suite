@@ -47,6 +47,9 @@ public class Pool implements Serializable{
      * @return the poolIDProperty
      */
     public String getPoolIDproperty() {
+        if(poolIDProperty==null){
+            poolIDProperty=new SimpleStringProperty(poolID);
+        }
         return poolIDProperty.get();
     }
 

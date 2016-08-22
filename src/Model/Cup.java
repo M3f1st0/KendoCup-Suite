@@ -23,6 +23,7 @@ import javafx.beans.value.ObservableValue;
  * @author panos
  */
 public class Cup implements Serializable {
+
     /*
      * Transient Instance Variables
      * These vaiables will not be saved in the object file, they do not impement Serializable.
@@ -34,11 +35,11 @@ public class Cup implements Serializable {
     private transient IntegerProperty prefPlayersProperty;  //The preferable number of players per Pool
     private transient IntegerProperty maxPlayersProperty;  //The maximum number of players per Pool
     private transient IntegerProperty numberOfShiaiJosProperty; //The number of ShiaiJo (places where kendo matches are held)
-    private transient BooleanProperty isATeamChampionshipProperty = new SimpleBooleanProperty(false); //This variable will be used as a flag to check ig this cup will be a Team championship
+    private transient BooleanProperty isATeamChampionshipProperty = new SimpleBooleanProperty(false); //This variable will be used as a flag to check ig this team will be a Team championship
     private transient BooleanProperty includedInParticipationList
             = new SimpleBooleanProperty(false); //This vairiable will me used with the checkBoxes in TitlePaneThree (Register Players) in TournamentSetUpView.fxml
-    //And will monitor if the contestant will participate in the particular cup.
-    //As contestant may participate in more than one cup
+    //And will monitor if the contestant will participate in the particular team.
+    //As contestant may participate in more than one team
     //All cups will be listed in a Table View
     //And the user can click the check boxes of the Cups that the contestant will participate.
 
@@ -52,12 +53,12 @@ public class Cup implements Serializable {
     private int maxPlayers = 0;
     private int numberOfShiaiJos = 0;
     private boolean isATeamChampionship = false;
-    private static int teamChampionshipsSelected=0; //this instance variable keeps count how many team competitions are selected inside the 
-                                                    //cupSelectorTableView in TournamentSetUpController class. 
-                                                    //A player can only participate in ONE team championship
-                                                    //therefore this variable should be always 1
-                                                    //if a second team championship is selected from the lisy
-                                                    //this variable will be incremented and a warning message will be show to the user.
+    private static int teamChampionshipsSelected = 0; //this instance variable keeps count how many team competitions are selected inside the 
+    //cupSelectorTableView in TournamentSetUpController class. 
+    //A player can only participate in ONE team championship
+    //therefore this variable should be always 1
+    //if a second team championship is selected from the lisy
+    //this variable will be incremented and a warning message will be show to the user.
 
     private ArrayList<Shiaijo> shiaijos = new ArrayList<>();
     private ArrayList<Pool> pools = new ArrayList<>();
@@ -67,122 +68,131 @@ public class Cup implements Serializable {
     private ArrayList<Club> clubs = new ArrayList<>();
 
     //Constructor
-    public Cup(String cupname, int pref, int max) throws Exception{
+    public Cup(String cupname, int pref, int max) throws IllegalArgumentException, Exception {
 
         numberOfPoolsProperty = new SimpleIntegerProperty(0);
         numberOfShiaiJosProperty = new SimpleIntegerProperty(0);
-        if (!cupname.isEmpty()) {
-            cupnameProperty = new SimpleStringProperty(cupname);
-            this.cupName = cupname;
+        if (cupname.isEmpty() || pref <= 0 || max <= 0) {
+            throw new IllegalArgumentException("The fileds cannot be empty");
         } else {
-            throw new Exception("Cup name cannot be empty!");
-        }
-
-        if (pref > 2 && pref <= max) {
-            prefPlayersProperty = new SimpleIntegerProperty(pref);
-            this.prefPlayers = pref;
-        } else {
-            throw new Exception("The preferred players must always be smaller or equal to maximum players");
-        }
-
-        if (max >= pref) {
-            maxPlayersProperty = new SimpleIntegerProperty(max);
-            this.maxPlayers = max;
-        } else {
-            throw new Exception("The preferred players must always be smaller or equal to maximum players");
-        }
-        this.includedInParticipationList.addListener(new ChangeListener<Boolean>() {
-            public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
-                System.out.println(getCupName() + " Included in the Cup : " + t1);
-                if(includedInParticipationList.get() && isATeamChampionship){
-                    teamChampionshipsSelected++;
-                    if(getTeamChampionshipsSelected()>=2){
-//                        DataStorage.getInstance().msgBox("ATTENTION! You have selected more than one Team-Competitions.", false);
-                          throw new IllegalArgumentException("ATTENTION! You have selected more than one Team-Competitions.");
-                    }
-                    System.out.println("Number of team cups selected "+getTeamChampionshipsSelected());
-                }else if(!includedInParticipationList.get()&& isATeamChampionship){
-                    teamChampionshipsSelected--;
-                    if(getTeamChampionshipsSelected()>=2){
-//                        DataStorage.getInstance().msgBox("ATTENTION! You have selected more than one Team-Competitions.", false);
-                        throw new IllegalArgumentException("ATTENTION! You have selected more than one Team-Competitions.");
-                    }
-                    System.out.println("Number of team cups selected "+getTeamChampionshipsSelected());
-                }
+            if (!cupname.isEmpty()) {
+                cupnameProperty = new SimpleStringProperty(cupname);
+                this.cupName = cupname;
+            } else {
+                throw new Exception("Cup name cannot be empty!");
             }
 
-        });
+            if (pref > 2 && pref <= max) {
+                prefPlayersProperty = new SimpleIntegerProperty(pref);
+                this.prefPlayers = pref;
+            } else {
+                throw new Exception("The preferred players must always be smaller or equal to maximum players");
+            }
+
+            if (max >= pref) {
+                maxPlayersProperty = new SimpleIntegerProperty(max);
+                this.maxPlayers = max;
+            } else {
+                throw new Exception("The preferred players must always be smaller or equal to maximum players");
+            }
+            this.includedInParticipationList.addListener(new ChangeListener<Boolean>() {
+                public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
+                    System.out.println(getCupName() + " Included in the Cup : " + t1);
+                    if (includedInParticipationList.get() && isATeamChampionship) {
+                        teamChampionshipsSelected++;
+                        if (getTeamChampionshipsSelected() >= 2) {
+                            DataStorage.getInstance().msgBox("ATTENTION! You have selected more than one Team-Competitions.", false);
+                            //throw new IllegalArgumentException("ATTENTION! You have selected more than one Team-Competitions.");
+                        }
+                        System.out.println("Number of team cups selected " + getTeamChampionshipsSelected());
+                    } else if (!includedInParticipationList.get() && isATeamChampionship) {
+                        teamChampionshipsSelected--;
+                        if (getTeamChampionshipsSelected() >= 2) {
+                            DataStorage.getInstance().msgBox("ATTENTION! You have selected more than one Team-Competitions.", false);
+//                        throw new IllegalArgumentException("ATTENTION! You have selected more than one Team-Competitions.");
+                        }
+                        System.out.println("Number of team cups selected " + getTeamChampionshipsSelected());
+                    }
+                }
+
+            });
+        }
+
     }
 
-    public Cup(String cupname, int pref, int max, int numberOfPools, int numOfShiaijos) throws  Exception{
+    public Cup(String cupname, int pref, int max, int numberOfPools, int numOfShiaijos) throws IllegalArgumentException, Exception {
 
-        if (!cupname.isEmpty()) {
-            cupnameProperty = new SimpleStringProperty(cupname);
-            this.cupName = cupname;
+        if (cupname.isEmpty() || pref <= 0 || max <= 0 || numberOfPools <= 0 || numOfShiaijos <= 0) {
+            throw new IllegalArgumentException("The fileds cannot be empty");
         } else {
-            throw new Exception("Cup name cannot be empty!");
-        }
-
-        if (pref > 2 && pref <= max) {
-            prefPlayersProperty = new SimpleIntegerProperty(pref);
-            this.prefPlayers = pref;
-        } else {
-            throw new Exception("The preferred players must always be smaller or equal to maximum players");
-        }
-
-        if (max >= pref) {
-            maxPlayersProperty = new SimpleIntegerProperty(max);
-            this.maxPlayers = max;
-        } else {
-            throw new Exception("The preferred players must always be smaller or equal to maximum players");
-        }
-
-        if (numberOfPools >= 1) {
-            for (int i = 1; i <= numberOfPools; i++) {
-                String ID = "P.";
-                ID = ID + i;
-                pools.add(new Pool(ID));
+            if (!cupname.isEmpty()) {
+                cupnameProperty = new SimpleStringProperty(cupname);
+                this.cupName = cupname;
+            } else {
+                throw new Exception("Cup name cannot be empty!");
             }
-            numberOfPoolsProperty = new SimpleIntegerProperty(pools.size());
-            this.numberOfPools = pools.size();
 
-        } else {
-            throw new Exception("Pool number must be greater than zero ");
-        }
-
-        if (numOfShiaijos >= 1) {
-            for (int i = 1; i <= numOfShiaijos; i++) {
-                String ID = "";
-                char c = (char) (i + 64);
-                ID = ID + c;
-                shiaijos.add(new Shiaijo(ID));
+            if (pref > 2 && pref <= max) {
+                prefPlayersProperty = new SimpleIntegerProperty(pref);
+                this.prefPlayers = pref;
+            } else {
+                throw new Exception("The preferred players must always be smaller or equal to maximum players");
             }
-            numberOfShiaiJosProperty = new SimpleIntegerProperty(shiaijos.size());
-            this.numberOfShiaiJos = shiaijos.size();
-        } else {
-            throw new Exception("Shiaijo number must be greater than zero ");
-        }
-        this.includedInParticipationList.addListener(new ChangeListener<Boolean>() {
-            public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
-                System.out.println(getCupName() + " Included in the Cup : " + t1);
-                if(includedInParticipationList.get() && isATeamChampionship){
-                    teamChampionshipsSelected++;
-                    if(getTeamChampionshipsSelected()>=2){
-//                        DataStorage.getInstance().msgBox("ATTENTION! You have selected more than one Team-Competitions.", false);
-                        throw new IllegalArgumentException("ATTENTION! You have selected more than one Team-Competitions.");
-                    }
-                    System.out.println("Number of team cups selected "+getTeamChampionshipsSelected());
-                }else if(!includedInParticipationList.get()&& isATeamChampionship){
-                    teamChampionshipsSelected--;
-                    if(getTeamChampionshipsSelected()>=2){
-//                        DataStorage.getInstance().msgBox("ATTENTION! You have selected more than one Team-Competitions.", false);
-                        throw new IllegalArgumentException("ATTENTION! You have selected more than one Team-Competitions.");
-                    }
-                    System.out.println("Number of team cups selected "+getTeamChampionshipsSelected());
+
+            if (max >= pref) {
+                maxPlayersProperty = new SimpleIntegerProperty(max);
+                this.maxPlayers = max;
+            } else {
+                throw new Exception("The preferred players must always be smaller or equal to maximum players");
+            }
+
+            if (numberOfPools >= 1) {
+                for (int i = 1; i <= numberOfPools; i++) {
+                    String ID = "P.";
+                    ID = ID + i;
+                    pools.add(new Pool(ID));
                 }
+                numberOfPoolsProperty = new SimpleIntegerProperty(pools.size());
+                this.numberOfPools = pools.size();
+
+            } else {
+                throw new Exception("Pool number must be greater than zero ");
             }
 
-        });
+            if (numOfShiaijos >= 1) {
+                for (int i = 1; i <= numOfShiaijos; i++) {
+                    String ID = "";
+                    char c = (char) (i + 64);
+                    ID = ID + c;
+                    shiaijos.add(new Shiaijo(ID));
+                }
+                numberOfShiaiJosProperty = new SimpleIntegerProperty(shiaijos.size());
+                this.numberOfShiaiJos = shiaijos.size();
+            } else {
+                throw new Exception("Shiaijo number must be greater than zero ");
+            }
+            this.includedInParticipationList.addListener(new ChangeListener<Boolean>() {
+                public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
+                    System.out.println(getCupName() + " Included in the Cup : " + t1);
+                    if (includedInParticipationList.get() && isATeamChampionship) {
+                        teamChampionshipsSelected++;
+                        if (getTeamChampionshipsSelected() >= 2) {
+                            DataStorage.getInstance().msgBox("ATTENTION! You have selected more than one Team-Competitions.", false);
+//                        throw new IllegalArgumentException("ATTENTION! You have selected more than one Team-Competitions.");
+                        }
+                        System.out.println("Number of team cups selected " + getTeamChampionshipsSelected());
+                    } else if (!includedInParticipationList.get() && isATeamChampionship) {
+                        teamChampionshipsSelected--;
+                        if (getTeamChampionshipsSelected() >= 2) {
+                            DataStorage.getInstance().msgBox("ATTENTION! You have selected more than one Team-Competitions.", false);
+//                        throw new IllegalArgumentException("ATTENTION! You have selected more than one Team-Competitions.");
+                        }
+                        System.out.println("Number of team cups selected " + getTeamChampionshipsSelected());
+                    }
+                }
+
+            });
+        }
 
     }
 
@@ -192,7 +202,7 @@ public class Cup implements Serializable {
     /**
      * @param cupnameProperty the cupnameProperty to set
      */
-    public void setCupnameProperty(String cupname) throws  Exception{
+    public void setCupnameProperty(String cupname) throws Exception {
         if (!cupname.isEmpty()) {
             cupnameProperty.setValue(cupname);
             this.cupName = cupname;
@@ -204,7 +214,7 @@ public class Cup implements Serializable {
     /**
      * @param numberOfPoolsProperty the numberOfPoolsProperty to set
      */
-    private void setNumberOfPoolsProperty(int nop) throws Exception{
+    private void setNumberOfPoolsProperty(int nop) throws Exception {
         pools.clear();
         if (nop >= 1) {
             for (int i = 1; i <= nop; i++) {
@@ -223,7 +233,7 @@ public class Cup implements Serializable {
     /**
      * @param prefPlayersProperty the prefPlayersProperty to set
      */
-    public void setPrefPlayersProperty(int prefPlayers) throws Exception{
+    public void setPrefPlayersProperty(int prefPlayers) throws Exception {
         if (prefPlayers > 2 && prefPlayers <= maxPlayers) {
             prefPlayersProperty.set(prefPlayers);
             this.prefPlayers = prefPlayers;
@@ -236,7 +246,7 @@ public class Cup implements Serializable {
     /**
      * @param maxPlayersProperty the maxPlayersProperty to set
      */
-    public void setMaxPlayersProperty(int maxplayers) throws Exception{
+    public void setMaxPlayersProperty(int maxplayers) throws Exception {
         if (maxplayers >= prefPlayers) {
             maxPlayersProperty.set(maxplayers);
             this.maxPlayers = maxplayers;
@@ -250,7 +260,7 @@ public class Cup implements Serializable {
      * @param numberOfShiaiJosProperty the numberOfShiaiJosProperty to set Each
      * time a new number is defined the arraylist is cleared and repopulated.
      */
-    public void setNumberOfShiaiJosProperty(int noShiajo) throws Exception{
+    public void setNumberOfShiaiJosProperty(int noShiajo) throws Exception {
         shiaijos.clear();
         if (noShiajo >= 1) {
             for (int i = 1; i <= noShiajo; i++) {
@@ -270,7 +280,7 @@ public class Cup implements Serializable {
     /**
      * @param cupName the cupName to set
      */
-    public void setCupName(String cupname) throws Exception{
+    public void setCupName(String cupname) throws Exception {
         if (!cupname.isEmpty()) {
             cupnameProperty.setValue(cupname);
             this.cupName = cupname;
@@ -282,7 +292,7 @@ public class Cup implements Serializable {
     /**
      * @param numberOfPools the numberOfPools to set
      */
-    public void setNumberOfPools(int nop) throws Exception{
+    public void setNumberOfPools(int nop) throws Exception {
         pools.clear();
         if (nop >= 1) {
             for (int i = 1; i <= nop; i++) {
@@ -300,7 +310,7 @@ public class Cup implements Serializable {
     /**
      * @param prefPlayers the prefPlayers to set
      */
-    public void setPrefPlayers(int prefPlayers) throws Exception{
+    public void setPrefPlayers(int prefPlayers) throws Exception {
         if (prefPlayers > 2 && prefPlayers <= maxPlayers) {
             prefPlayersProperty.set(prefPlayers);
             this.prefPlayers = prefPlayers;
@@ -312,7 +322,7 @@ public class Cup implements Serializable {
     /**
      * @param maxPlayers the maxPlayers to set
      */
-    public void setMaxPlayers(int maxplayers) throws Exception{
+    public void setMaxPlayers(int maxplayers) throws Exception {
         if (maxplayers >= prefPlayers) {
             maxPlayersProperty.set(maxplayers);
             this.maxPlayers = maxplayers;
@@ -325,7 +335,7 @@ public class Cup implements Serializable {
      * @param numberOfShiaiJos the numberOfShiaiJos to set Each time a new
      * number is defined the arraylist is cleared and repopulated.
      */
-    public void setNumberOfShiaiJos(int noShiajo) throws Exception{
+    public void setNumberOfShiaiJos(int noShiajo) throws Exception {
         shiaijos.clear();
         if (noShiajo >= 1) {
             for (int i = 1; i <= noShiajo; i++) {
@@ -344,7 +354,7 @@ public class Cup implements Serializable {
     /**
      * @param shiaijos the shiaijos to set
      */
-    public void setShiaijos(ArrayList<Shiaijo> shiaijos) throws Exception{
+    public void setShiaijos(ArrayList<Shiaijo> shiaijos) throws Exception {
         if (shiaijos.size() > 0 && !shiaijos.isEmpty()) {
             this.shiaijos = shiaijos;
         } else {
@@ -356,7 +366,7 @@ public class Cup implements Serializable {
     /**
      * @param pools the pools to set
      */
-    public void setPools(ArrayList<Pool> pools) throws Exception{
+    public void setPools(ArrayList<Pool> pools) throws Exception {
         if (pools.size() > 0 && !pools.isEmpty()) {
             this.pools = pools;
         } else {
@@ -368,7 +378,7 @@ public class Cup implements Serializable {
     /**
      * @param teams the teams to set
      */
-    public void setTeams(ArrayList<Team> teams) throws Exception{
+    public void setTeams(ArrayList<Team> teams) throws Exception {
         if (teams.size() > 0 && !teams.isEmpty()) {
             this.teams = teams;
         } else {
@@ -380,7 +390,7 @@ public class Cup implements Serializable {
     /**
      * @param contestants the contestants to set
      */
-    public void setContestants(ArrayList<Contestant> contestants) throws Exception{
+    public void setContestants(ArrayList<Contestant> contestants) throws Exception {
         if (contestants.size() > 0 && !contestants.isEmpty()) {
             this.contestants = contestants;
         } else {
@@ -391,7 +401,7 @@ public class Cup implements Serializable {
     /**
      * @param matches the matches to set
      */
-    public void setMatches(ArrayList<Match> matches) throws Exception{
+    public void setMatches(ArrayList<Match> matches) throws Exception {
         if (matches.size() > 0 && !matches.isEmpty()) {
             this.matches = matches;
         } else {
@@ -402,13 +412,13 @@ public class Cup implements Serializable {
     /**
      * @param clubs the clubs to set
      */
-    public void setClubs(ArrayList<Club> clubs) throws Exception{
+    public void setClubs(ArrayList<Club> clubs) throws Exception {
         if (clubs.size() > 0 && !clubs.isEmpty()) {
             this.clubs = clubs;
         } else {
             throw new Exception("Clubs Empty List");
         }
-        
+
     }
 
     /**
@@ -434,13 +444,44 @@ public class Cup implements Serializable {
      *Getter methods ************************************************************
      */
     public BooleanProperty includedInParticipationListProperty() {
+        if (includedInParticipationList == null) {
+            includedInParticipationList = new SimpleBooleanProperty(false);
+            addListenerToIncludedInParticipatioListProperty();
+        }
         return includedInParticipationList;
+    }
+
+    private void addListenerToIncludedInParticipatioListProperty() {
+        this.includedInParticipationList.addListener(new ChangeListener<Boolean>() {
+            public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
+                System.out.println(getCupName() + " Included in the Cup : " + t1);
+                if (includedInParticipationList.get() && isATeamChampionship) {
+                    teamChampionshipsSelected++;
+                    if (getTeamChampionshipsSelected() >= 2) {
+                        DataStorage.getInstance().msgBox("ATTENTION! You have selected more than one Team-Competitions.", false);
+                        //throw new IllegalArgumentException("ATTENTION! You have selected more than one Team-Competitions.");
+                    }
+                    System.out.println("Number of team cups selected " + getTeamChampionshipsSelected());
+                } else if (!includedInParticipationList.get() && isATeamChampionship) {
+                    teamChampionshipsSelected--;
+                    if (getTeamChampionshipsSelected() >= 2) {
+                        DataStorage.getInstance().msgBox("ATTENTION! You have selected more than one Team-Competitions.", false);
+//                        throw new IllegalArgumentException("ATTENTION! You have selected more than one Team-Competitions.");
+                    }
+                    System.out.println("Number of team cups selected " + getTeamChampionshipsSelected());
+                }
+            }
+
+        });
     }
 
     /**
      * @return the cupnameProperty
      */
     public String getCupnameProperty() {
+        if (cupnameProperty == null) {
+            cupnameProperty = new SimpleStringProperty(cupName);
+        }
         return cupnameProperty.get();
     }
 
@@ -448,6 +489,9 @@ public class Cup implements Serializable {
      * @return the numberOfPoolsProperty
      */
     public int getNumberOfPoolsProperty() {
+        if (numberOfPoolsProperty == null) {
+            numberOfPoolsProperty = new SimpleIntegerProperty(numberOfPools);
+        }
         return numberOfPoolsProperty.get();
     }
 
@@ -455,6 +499,9 @@ public class Cup implements Serializable {
      * @return the prefPlayersProperty
      */
     public int getPrefPlayersProperty() {
+        if (prefPlayersProperty == null) {
+            prefPlayersProperty = new SimpleIntegerProperty(prefPlayers);
+        }
         return prefPlayersProperty.get();
     }
 
@@ -462,6 +509,9 @@ public class Cup implements Serializable {
      * @return the maxPlayersProperty
      */
     public int getMaxPlayersProperty() {
+        if (maxPlayersProperty == null) {
+            maxPlayersProperty = new SimpleIntegerProperty(maxPlayers);
+        }
         return maxPlayersProperty.get();
     }
 
@@ -469,7 +519,21 @@ public class Cup implements Serializable {
      * @return the numberOfShiaiJosProperty
      */
     public int getNumberOfShiaiJosProperty() {
+        if (numberOfShiaiJosProperty == null) {
+            numberOfShiaiJosProperty = new SimpleIntegerProperty(numberOfShiaiJos);
+
+        }
         return numberOfShiaiJosProperty.get();
+    }
+
+    /**
+     * @return the isATeamChampionshipProperty
+     */
+    public boolean getIsATeamChampionshipProperty() {
+        if (isATeamChampionshipProperty == null) {
+            isATeamChampionshipProperty = new SimpleBooleanProperty(isATeamChampionship);
+        }
+        return isATeamChampionshipProperty.get();
     }
 
     /**
@@ -548,13 +612,6 @@ public class Cup implements Serializable {
     public ArrayList<Club> getClubs() {
         return clubs;
     }
-    
-     /**
-     * @return the isATeamChampionshipProperty
-     */
-    public boolean getIsATeamChampionshipProperty() {
-        return isATeamChampionshipProperty.get();
-    }
 
     /**
      * @return the isATeamChampionship
@@ -562,7 +619,7 @@ public class Cup implements Serializable {
     public boolean isIsATeamChampionship() {
         return isATeamChampionship;
     }
-    
+
     /**
      * @return the teamChampionshipsSelected
      */
@@ -570,9 +627,77 @@ public class Cup implements Serializable {
         return teamChampionshipsSelected;
     }
 
+    /**
+     * Searches the teams ArrayList for team with teamName
+     *
+     * @param teamName
+     * @return
+     * @throws Exception
+     */
+    public Team getTeam(String teamName) throws Exception {
+        Team team = null;
+        if (!teamName.isEmpty()) {
+            for (Team t : teams) {
+                if (t.getTeamName().equalsIgnoreCase(teamName)) {
+                    team = t;
+                    break;
+                }
+            }
+        } else {
+            throw new Exception("Team name is empty String");
+        }
+        return team;
+    }
+
     /*
      ****************************************************************************
      */
-   
+    /**
+     * Searches through the cups for duplicate team name.
+     *
+     * @param team
+     * @return True if the team is unique
+     * @return False if there is a team with the same name
+     */
+    public boolean checkDuplicateTeamName(Team team) {
+        boolean isUnique = true;
+        if (!teams.isEmpty()) {
+            for (Team t : teams) {
+                if (t.getTeamName().equalsIgnoreCase(team.getTeamName())) {
+                    isUnique = false;
+                    break;
+                }
+            }
+        } else if (teams.isEmpty()) {
+            isUnique = true;
+        }
+
+        return isUnique;
+    }
+
+    public void addTeam(Team team) {
+        if (team != null) {
+            getTeams().add(team);
+        } else {
+            throw new NullPointerException("Parameter Team is Null");
+        }
+    }
+
+    public void addClub(Club club) throws Exception {
+        if (club != null) {
+            getClubs().add(club);
+        } else {
+            throw new Exception("Club is null object");
+        }
+
+    }
+
+    public void addContestant(Contestant contestant) throws Exception {
+        if (contestant != null) {
+            getContestants().add(contestant);
+        } else {
+            throw new Exception("Contestant object is empty");
+        }
+    }
 
 }

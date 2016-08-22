@@ -153,7 +153,7 @@ public class Team implements Serializable {
         }
     }
 
-    public void setBelongsToCup(String cupname) throws NullPointerException{
+    public void setBelongsToCup(String cupname) throws NullPointerException {
         if (!cupname.isEmpty()) {
             belongsToCupProperty.setValue(cupname);
             this.belongsToCup = cupname;
@@ -179,23 +179,58 @@ public class Team implements Serializable {
      *******************************Getters*************************************
      */
     public String getTeamNameProperty() {
+        if (teamNameProperty == null) {
+            teamNameProperty= new SimpleStringProperty(teamName);
+        }
         return teamNameProperty.get();
     }
 
     public int getWinsProperty() {
+        if (winsProperty == null) {
+            winsProperty=new SimpleIntegerProperty(wins);
+        }
         return winsProperty.get();
     }
 
     public int getLosesProperty() {
+        if (losesProperty == null) {
+            losesProperty=new SimpleIntegerProperty(loses);
+        }
         return losesProperty.get();
     }
 
     public int getDrawsProperty() {
+        if (drawsProperty == null) {
+            drawsProperty=new SimpleIntegerProperty(draws);
+        }
         return drawsProperty.get();
     }
 
     public String getBelongsToCupProperty() {
+        if (belongsToCupProperty == null) {
+            belongsToCupProperty=new SimpleStringProperty(belongsToCup);
+        }
         return belongsToCupProperty.get();
+    }
+
+    /**
+     * @return the minMembersProperty
+     */
+    public int getMinMembersProperty() {
+        if (minMembersProperty == null) {
+            minMembersProperty=new SimpleIntegerProperty(minMembers);
+        }
+        return minMembersProperty.get();
+    }
+
+    /**
+     * @return the maxMembersProperty
+     */
+    public int getMaxMembersProperty() {
+        if (maxMembersProperty == null) {
+            maxMembersProperty=new SimpleIntegerProperty(maxMebmers);
+        }
+        return maxMembersProperty.get();
     }
 
     public String getTeamName() {
@@ -220,20 +255,6 @@ public class Team implements Serializable {
 
     public ArrayList<Contestant> getTeamMembersAsList() {
         return teamMembers;
-    }
-
-    /**
-     * @return the minMembersProperty
-     */
-    public int getMinMembersProperty() {
-        return minMembersProperty.get();
-    }
-
-    /**
-     * @return the maxMembersProperty
-     */
-    public int getMaxMembersProperty() {
-        return maxMembersProperty.get();
     }
 
     /**

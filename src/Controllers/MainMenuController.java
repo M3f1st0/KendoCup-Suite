@@ -122,6 +122,7 @@ public class MainMenuController implements Initializable {
             window.setScene(scene);
             window.setResizable(true);
             window.setFullScreen(false);
+            window.setMaximized(true);
             window.show();
         } catch (IOException ex) {
             Logger.getLogger(MainMenuController.class.getName()).log(Level.SEVERE, null, ex);

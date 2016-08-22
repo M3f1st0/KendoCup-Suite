@@ -32,6 +32,9 @@ public class Shiaijo implements Serializable {
      * @return the IdProperty
      */
     public String getIdProperty() {
+        if(IdProperty==null){
+            IdProperty= new SimpleStringProperty(ID);
+        }
         return IdProperty.get();
     }
 
