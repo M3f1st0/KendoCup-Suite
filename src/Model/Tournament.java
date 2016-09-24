@@ -52,6 +52,8 @@ public class Tournament implements Serializable {
             throw new IllegalArgumentException("Tournament name is empty.");
         }
     }
+    
+    /*********************Getters *********************************************
 
     /**
      * @return the tournamentName
@@ -68,6 +70,27 @@ public class Tournament implements Serializable {
             System.out.println("EMPTY");
         }
         return cups;
+    }
+    
+     /**
+     * @return the teams
+     */
+    public ArrayList<Team> getTeams() {
+        return teams;
+    }
+
+    /**
+     * @return the clubs
+     */
+    public ArrayList<Club> getClubs() {
+        return clubs;
+    }
+
+    /**
+     * @return the contestants
+     */
+    public ArrayList<Contestant> getContestants() {
+        return contestants;
     }
 
     /**
@@ -92,19 +115,46 @@ public class Tournament implements Serializable {
         }
         return cup;
     }
-
+    
+        /**
+     * @return the isTournamentSetUpCompleted
+     */
+    public boolean isIsTournamentSetUpCompleted() {
+        return isTournamentSetUpCompleted;
+    }
+    //*******************END OF Getters ***************************************
+    
+    //******************** Setters ********************************************
     /**
      * @param cups the cups to set
      */
     public void setCups(ArrayList<Cup> cups) {
         this.cups = (!cups.isEmpty()) ? cups : null;
     }
+    
+    public void setTournamentName(String tournamentName) {
+        this.tournamentName = tournamentName;
+    }
 
     /**
-     * @return the isTournamentSetUpCompleted
+     * @param teams the teams to set
      */
-    public boolean isIsTournamentSetUpCompleted() {
-        return isTournamentSetUpCompleted;
+    public void setTeams(ArrayList<Team> teams) {
+        this.teams = (!teams.isEmpty()) ? teams : null;
+    }
+
+    /**
+     * @param clubs the clubs to set
+     */
+    public void setClubs(ArrayList<Club> clubs) {
+        this.clubs = (!clubs.isEmpty()) ? clubs : null;
+    }
+
+    /**
+     * @param contestants the contestants to set
+     */
+    public void setContestants(ArrayList<Contestant> contestants) {
+        this.contestants = (!contestants.isEmpty()) ? contestants : null;
     }
 
     /**
@@ -113,23 +163,10 @@ public class Tournament implements Serializable {
     public void setIsTournamentSetUpCompleted(boolean isTournamentSetUpCompleted) {
         this.isTournamentSetUpCompleted = isTournamentSetUpCompleted;
     }
+    
+    //**********************END OF Setters ***************************************
 
-    /**
-     * @param cup the cup to be removed
-     */
-    public void removeCup(Cup cup) throws NullPointerException, Exception {
-        //TO DO
-        if (cup != null) {
-            if (cups.size() > 1) {
-                cups.remove(cup);
-            } else {
-                throw new Exception("ArrayList cups cannot be left empty.");
-            }
 
-        } else {
-            throw new NullPointerException("Parameter Cup is Null");
-        }
-    }
 
     /**
      * Adds a new cup in the cups ArrayList of the Tournament Class
@@ -346,6 +383,22 @@ public class Tournament implements Serializable {
 
     }
     
+        /**
+     * @param cup the cup to be removed
+     */
+    public void removeCup(Cup cup) throws NullPointerException, Exception {
+        //TO DO
+        if (cup != null) {
+            if (cups.size() > 1) {
+                cups.remove(cup);
+            } else {
+                throw new Exception("ArrayList cups cannot be left empty.");
+            }
+
+        } else {
+            throw new NullPointerException("Parameter Cup is Null");
+        }
+    }
     
     public void removeContestantFromCup(Contestant contestant) {
         
@@ -576,53 +629,10 @@ public class Tournament implements Serializable {
 
     }
 
-    /**
-     * @return the teams
-     */
-    public ArrayList<Team> getTeams() {
-        return teams;
-    }
-
-    /**
-     * @return the clubs
-     */
-    public ArrayList<Club> getClubs() {
-        return clubs;
-    }
-
-    /**
-     * @return the contestants
-     */
-    public ArrayList<Contestant> getContestants() {
-        return contestants;
-    }
-
+   
     /**
      * @param tournamentName the tournamentName to set
      */
-    public void setTournamentName(String tournamentName) {
-        this.tournamentName = tournamentName;
-    }
-
-    /**
-     * @param teams the teams to set
-     */
-    public void setTeams(ArrayList<Team> teams) {
-        this.teams = (!teams.isEmpty()) ? teams : null;
-    }
-
-    /**
-     * @param clubs the clubs to set
-     */
-    public void setClubs(ArrayList<Club> clubs) {
-        this.clubs = (!clubs.isEmpty()) ? clubs : null;
-    }
-
-    /**
-     * @param contestants the contestants to set
-     */
-    public void setContestants(ArrayList<Contestant> contestants) {
-        this.contestants = (!contestants.isEmpty()) ? contestants : null;
-    }
+    
 
 }

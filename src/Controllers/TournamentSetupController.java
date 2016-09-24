@@ -179,6 +179,8 @@ public class TournamentSetupController implements Initializable {
                             tournament.printStructure();
                             lockedClearContestantArray.set(true);
                             tournament.printStructure();
+                            
+                            // WRITE THE FILE TO THE DATABASE
                         } else {
                             DataStorage.getInstance().msgBox("You must add at least one element", false);
                         }
